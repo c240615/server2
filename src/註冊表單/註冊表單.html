@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>註冊表單</title>
+    <script type="text/javascript" src="vue.js/vue.js"></script>
+</head>
+<body>
+    <div id="root">
+    <form @submit.prevent="demo">    
+    <table width="700">
+        <!-- 第一行 -->
+        <tr>
+            <td>帳號:</td>
+            <td><input type="text" v-model='userInfo.account'></td>            
+        </tr>
+        <tr>
+            <td>密碼:</td>
+            <td><input type="password" v-model="userInfo.password"></td>
+        </tr>
+        
+        <!-- 第二行 -->
+        <tr>
+            <td>性別:</td>
+            <td>
+                <input type="radio" id="gender1" name="sex" value="male" v-model="userInfo.gender"><label for="gender1"><img src="images/男.jpg" width="20px">男</label>
+                <input type="radio" id="gender2" name="sex" value="female" v-model="userInfo.gender"><label for="gender2"><img src="images/女.jpg" width="20px">女</label>
+            </td>
+        </tr>
+        <!-- 第三行 -->        
+        <tr>
+            <td>飲食習慣:</td>
+            <td>
+                <input type="checkbox" id="meat" value="meat" v-model="userInfo.eatinghabbit"><label for="meat">葷</label>
+                <input type="checkbox" id="vege" value="vegetarian" v-model="userInfo.eatinghabbit"><label for="vege">素</label>
+                <input type="checkbox" id="egg" value="egg" v-model="userInfo.eatinghabbit"><label for="egg">蛋奶素</label>
+            </td>                        
+        </tr>
+        <!-- 第四行 -->
+        <tr>
+            <td>通訊地址:</td>
+            <td><input type="text"  v-model="userInfo.address"></td>
+        </tr>        
+        <!-- 第五行 -->
+        <tr>
+            <td>學歷:</td>
+            <td>
+            <select v-model="userInfo.school">
+                <option>--請選擇學歷--</option>
+                <option value="國中">國中</option>
+                <option value="高中職">高中職</option>
+                <option value="大專院校">大專院校</option>
+                <option value="碩士">碩士</option>
+                <option value="博士">博士</option>
+                <option value="其他">其他</option>
+            </select>
+        </td>
+        </tr>
+        <!-- 第六行 -->
+        <tr>
+            <td>意見回饋</td>
+            <td><textarea name="text" id="area" cols="30" rows="10" v-model="userInfo.respond"></textarea></td>
+        </tr>
+        <!-- 第七行 -->
+        <tr>
+            <td></td>
+            <td><input type="checkbox" checked="checked" v-model="userInfo.agree">閱讀並接受<a href="https://www.youtube.com/">會員條款</a></td>
+        </tr>
+        <!-- 第八行 -->
+        <tr>
+            <td></td>
+            <td><input type="submit" value="免費註冊"></td>
+        </tr>
+        
+        
+        
+    </table>
+    </form>
+    </div>
+
+    <script type="text/javascript">
+        Vue.config.productionTip = false ;
+        new Vue({
+            el:{
+                data:{
+                    // 數據雙向綁定,初始值影響提取的數據
+                    userInfo:{
+                        account:'',
+                        password:'',
+                        gender:'',                    
+                        eatinghabbit:[],
+                        address:'',
+                        school:'',
+                        respond:'',
+                        agree:''
+                    }
+                },
+                methods:{
+                    demo(){                        
+                        console.log(JSON.stringify(this.userInfo));
+                    }
+                }
+            }
+        })
+        
+        
+    </script>
+</body>
+</html>
