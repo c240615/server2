@@ -1,4 +1,4 @@
-// 輸出模塊、變量接口 import 加載export街口的模塊
+// 輸出模塊、變量接口 import 加載export接口的模塊
 export interface task{
     userInfo:{        
         id:number,
