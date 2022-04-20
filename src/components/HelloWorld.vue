@@ -12,7 +12,7 @@ export default {
     return {
       msg: '周培瑜',
       getin(){
-        window.open('../components/todolist.html')
+        window.open('../../註冊表單/註冊表單.html')
       }
     }  
   }
