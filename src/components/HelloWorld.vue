@@ -1,30 +1,25 @@
 <template>
-<p>123</p>
+  <div>
+     <p>歡迎來到{{msg}}的專案</p>
+     <button @click="getin">進入todolist</button>     
+  </div> 
 </template>
-
+// import demo from '路徑'
 <script>
 export default {
-  name: 'HelloWorld',
-  props: {
-    msg: String
+  name: 'HelloVue',
+  data () {
+    return {
+      msg: '周培瑜',
+      getin(){
+        window.open('../components/todolist.html')
+      }
+    }  
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
+
 </style>
